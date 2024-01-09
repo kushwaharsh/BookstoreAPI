@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SimplestCRUDExample</a> &gt; <a href="index.source.html" class="el_package">com.example.SimplestCRUDExample.serviceImpl</a> &gt; <span class="el_source">BookServiceImpl.java</span></div><h1>BookServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.SimplestCRUDExample.serviceImpl;
+
+import com.example.SimplestCRUDExample.model.Book;
+import com.example.SimplestCRUDExample.model.BookRequest;
+import com.example.SimplestCRUDExample.repo.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L14">public class BookServiceImpl {</span>
+
+    @Autowired
+    BookRepository bookRepository;
+
+    public List&lt;Book&gt; getAllBooks(){
+<span class="nc" id="L20">        List&lt;Book&gt; bookList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L21">        return bookRepository.findAll();</span>
+    }
+    public Book getBookById(Long id){
+<span class="nc" id="L24">        return bookRepository.findById(id).orElse(null);</span>
+
+    }
+
+    public Book save(BookRequest bookRequest){
+<span class="nc" id="L29">        Book book=new Book();</span>
+<span class="nc" id="L30">        book.setAuthor(bookRequest.getAuthor());</span>
+<span class="nc" id="L31">        book.setTitle(bookRequest.getTitle());</span>
+<span class="nc" id="L32">        book.setPublicationYear(bookRequest.getPublicationYear());</span>
+<span class="nc" id="L33">        bookRepository.save(book);</span>
+<span class="nc" id="L34">        return book;</span>
+    }
+
+    public Book updateBook(BookRequest bookRequest,Long id){
+<span class="nc" id="L38">        Optional&lt;Book&gt; bookData = bookRepository.findById(id);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (bookData.isPresent()) {</span>
+<span class="nc" id="L40">            Book updatedBookData = bookData.get();</span>
+<span class="nc" id="L41">            updatedBookData.setTitle(bookRequest.getTitle());</span>
+<span class="nc" id="L42">            updatedBookData.setAuthor(bookRequest.getAuthor());</span>
+<span class="nc" id="L43">            updatedBookData.setPublicationYear(bookRequest.getPublicationYear());</span>
+
+<span class="nc" id="L45">            return bookRepository.save(updatedBookData);</span>
+        }
+<span class="nc" id="L47">        return null;</span>
+    }
+    public void deleteBookById(Long id){
+<span class="nc" id="L50">        bookRepository.deleteById(id);</span>
+<span class="nc" id="L51">    }</span>
+    public void deleteAll(){
+<span class="nc" id="L53">        bookRepository.deleteAll();</span>
+<span class="nc" id="L54">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,6 @@
+com\example\SimplestCRUDExample\repo\BookRepository.class
+com\example\SimplestCRUDExample\serviceImpl\BookServiceImpl.class
+com\example\SimplestCRUDExample\controller\BookController.class
+com\example\SimplestCRUDExample\model\BookRequest.class
+com\example\SimplestCRUDExample\model\Book.class
+com\example\SimplestCRUDExample\SimplestCrudExampleApplication.class

@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+SimplestCRUDExample,com.example.SimplestCRUDExample.controller,BookController,84,29,4,2,21,7,7,3,4,3
+SimplestCRUDExample,com.example.SimplestCRUDExample,SimplestCrudExampleApplication,5,3,0,0,2,1,1,1,1,1
+SimplestCRUDExample,com.example.SimplestCRUDExample.serviceImpl,BookServiceImpl,80,3,2,0,21,1,7,1,6,1
+SimplestCRUDExample,com.example.SimplestCRUDExample.model,Book,35,21,0,0,5,3,8,3,8,3
+SimplestCRUDExample,com.example.SimplestCRUDExample.model,BookRequest,150,0,24,0,6,0,24,0,12,0
